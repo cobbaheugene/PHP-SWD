@@ -21,7 +21,15 @@ $car=$_POST["car"];
 
 //prepare and bind
 $stmt = $conn->prepare("INERT INTO personal information(First Name, Last Name, Password, Email, Car) VALUES (?,?,?,?,?");
+$stmt ->bind_param("sssss", $fname, $lname,$password, $email, $car);
+$stmt ->execute();
+
+echo "New records created successfully";
+
+$stmt->close();
+$conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
